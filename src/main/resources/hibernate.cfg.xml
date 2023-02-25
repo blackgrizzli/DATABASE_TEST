@@ -8,6 +8,8 @@
         <property name="connection.password">12wq12wQ</property>
         <property name="hibernate.show_sql ">true</property>
         <property name="hbm2ddl.auto">update</property>
+        <property name = "hibernate.show_sql"> true </property>
+        <property name="hibernate.format_sql">true</property>
         <mapping class="org.example.Cat" />
     </session-factory>
 </hibernate-configuration>
