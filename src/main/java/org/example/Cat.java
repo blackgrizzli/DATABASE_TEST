@@ -1,13 +1,17 @@
 package org.example;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+@org.hibernate.annotations.NamedQueries({
+        @org.hibernate.annotations.NamedQuery(name = "findAllUser", query = "from Cat"),
+        @org.hibernate.annotations.NamedQuery(name = "findFirstUser",query = "from Cat where nameCat = :name")
+})
 @Entity
 public class Cat {
     public Cat() {
-
     }
 
     public int getId() {
@@ -53,6 +57,7 @@ public class Cat {
     public int id;
     public String nameCat;
     public int age;
+
 }
 
 
