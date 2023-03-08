@@ -3,7 +3,7 @@
 
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/Person2 </property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/Person </property>
         <property name="connection.username">root</property>
         <property name="connection.password">12wq12wQ</property>
         <property name="hibernate.show_sql ">true</property>
@@ -14,5 +14,6 @@
         <mapping class="org.example.oneToMany_ColumJoin.Elephant" />
         <mapping class="org.example.manyToOne_ColumJoin.Employee" />
         <mapping class="org.example.manyToOne_ColumJoin.EmployeeTask" />
+        <mapping class="org.example.Cat" />
     </session-factory>
 </hibernate-configuration>
