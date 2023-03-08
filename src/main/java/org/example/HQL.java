@@ -25,6 +25,13 @@ public class HQL {
             Transaction transaction = session.beginTransaction();
             session.persist(cat);
             session.flush();
+            Query<Cat> selectNameCatFromCat = session.createQuery("from Cat where id < 100", Cat.class);
+            List<Cat> list = selectNameCatFromCat.list();
+            list.forEach(System.out::println);
+            ScrollableResults<Cat> scroll = selectNameCatFromCat.scroll();
+            scroll.scroll(3);
+            Cat cat1 = scroll.get();
+            System.out.println(cat);
         }
     }
 }

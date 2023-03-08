@@ -3,6 +3,8 @@ package org.example;
 
 import org.apache.log4j.PropertyConfigurator;
 import org.example.CreateTimestamp_UpdateTimestam.Imploee;
+
+import org.apache.log4j.PropertyConfigurator;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -22,6 +24,7 @@ public class Main {
 
     public Main() {
         this.sf = new Configuration().configure().buildSessionFactory();
+        //PropertyConfigurator.configure("src/main/resources/log4j.properties");
     }
 
     public void setQuery(String query) {
@@ -41,20 +44,21 @@ public class Main {
         }
     }
 
-    public <T> void addCat(T clazz) {
-        logger.info("Зашли в метод запись БД");
-        try (Session session = sf.openSession()) {
-            Transaction transaction = session.beginTransaction();
-            session.persist(clazz);
-            transaction.commit();
-        }
-    }
 
-    public static void main(String[] args) throws ClassNotFoundException {
-        Imploee imploee = new Imploee("Bob", "programmer");
-        Imploee imploee1 = new Imploee("Dima", "Fly");
-        Imploee imploee2 = new Imploee("Andrey", "notWork");
-        Main main = new Main();
+        public <T> void addCat (T clazz){
+            logger.info("Зашли в метод запись БД");
+            try (Session session = sf.openSession()) {
+                Transaction transaction = session.beginTransaction();
+                session.persist(clazz);
+                transaction.commit();
+            }
+        }
+
+        public static void main (String[]args) throws ClassNotFoundException {
+            Imploee imploee = new Imploee("Bob", "programmer");
+            Imploee imploee1 = new Imploee("Dima", "Fly");
+            Imploee imploee2 = new Imploee("Andrey", "notWork");
+            Main main = new Main();
 //        main.addCat(imploee);
 //        main.addCat(imploee1);
 //        main.addCat(imploee2);
@@ -71,6 +75,6 @@ public class Main {
 //            session.createQuery("update Imploee set job = 'home' where Id = 2").executeUpdate();
 //            transaction.commit();
 //        }
+        }
     }
-}
 
